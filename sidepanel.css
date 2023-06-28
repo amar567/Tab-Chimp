@@ -1,0 +1,200 @@
+.container {
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+.box {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.tab-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    position: relative;
+}
+
+/* tab list 會動的底線 */
+.tab-list::before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 33.333%;
+    position: absolute;
+    bottom: 0;
+    background-color: #aaa;
+    transition: .3s;
+}
+
+.tab-item {
+    flex: 1;
+    text-align: center;
+    transition: .3s;
+    opacity: 0.5;
+}
+
+.tab-toggle {
+    display: none;
+}
+
+.tab-content {
+    display: none;
+    overflow: auto;
+    max-height: 100%;
+    height: 85vh;
+    max-width: 100%;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px;
+    border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.tab-toggle:nth-child(1):checked~.tab-list .tab-item:nth-child(1),
+.tab-toggle:nth-child(2):checked~.tab-list .tab-item:nth-child(2),
+.tab-toggle:nth-child(3):checked~.tab-list .tab-item:nth-child(3) {
+    opacity: 1;
+}
+
+/* tab bar 底線位移控制 */
+.tab-toggle:nth-child(2):checked~.tab-list::before {
+    transform: translateX(100%);
+}
+
+.tab-toggle:nth-child(3):checked~.tab-list::before {
+    transform: translateX(200%);
+}
+
+/* 內容顯示控制 */
+.tab-toggle:nth-child(1):checked~.tab-container .tab-content:nth-child(1),
+.tab-toggle:nth-child(2):checked~.tab-container .tab-content:nth-child(2),
+.tab-toggle:nth-child(3):checked~.tab-container .tab-content:nth-child(3) {
+    display: block;
+}
+
+.tab-trigger {
+    display: block;
+    padding: 10px 0;
+    font-size: medium;
+}
+
+/* .tab-container {
+    padding: 15px 30px;
+} */
+
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+
+*:focus {
+	outline: none;
+}
+
+body > div {
+	width: 90%;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+
+details div {
+	border-left: 2px solid #000;
+	border-right: 2px solid #000;
+	border-bottom: 2px solid #000;
+	padding: 1.5em;
+}
+
+details div > * + * {
+	margin-top: 1.5em;
+}
+
+details + details {
+	margin-top: .5rem;
+}
+
+summary {
+	list-style: none;
+}
+
+summary::-webkit-details-marker {
+	display: none;
+}
+
+summary {
+	border: 2px solid #000;
+	/* padding: .75em 1em; */
+	cursor: pointer;
+	position: relative;
+	padding-left: calc(1.75rem + .75rem + .75rem);
+}
+
+summary:before {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: .75rem;
+	content: "V";
+	width: 1.75rem;
+	height: 1.75rem;
+	background-color: #000;
+	color: #FFF;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+/* details[open] summary {
+	background-color: #eee;
+} */
+
+details[open] summary:before {
+	content: "A";
+}
+
+/* summary:hover {
+	background-color: #eee;
+} */
+
+a {
+	color: inherit;
+	font-weight: 600;
+	text-decoration: none;
+	box-shadow: 0 1px 0 0;
+}
+
+a:hover {
+	box-shadow: 0 3px 0 0;
+}
+
+code {
+	font-family: monospace;
+	font-weight: 600;
+}

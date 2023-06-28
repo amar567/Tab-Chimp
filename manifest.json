@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Chimp",
+  "version": "1.0",
+  "icons": {
+    "16": "images/monkey.png",
+    "32": "images/monkey.png",
+    "48": "images/monkey.png",
+    "128": "images/monkey.png"
+  },
+  "action": {
+    "default_title": "Click to open panel"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "permissions": ["tabGroups","tabs","activeTab","downloads","bookmarks","sidePanel","storage"]
+}

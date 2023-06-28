@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Sidepanel</title>
+    <style>
+        @media (prefers-color-scheme: light) {
+            body {
+                background: #FFF;
+                color: #333;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #333;
+                color: #FFF;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./sidepanel.css">
+    <script src="./sidepanel.js"></script>
+</head>
+
+<body>
+    <div class="container" id="dropArea">
+        <div class="box">
+            <input type="radio" class="tab-toggle" name="tab-toggle" id="tab1" checked>
+            <input type="radio" class="tab-toggle" name="tab-toggle" id="tab2">
+            <input type="radio" class="tab-toggle" name="tab-toggle" id="tab3">
+
+            <ul class="tab-list">
+                <li class="tab-item">
+                    <label class="tab-trigger" for="tab1">Groups</label>
+                </li>
+                <li class="tab-item">
+                    <label class="tab-trigger" for="tab2">Windows</label>
+                </li>
+                <li class="tab-item">
+                    <label class="tab-trigger" for="tab3">Bookmarks</label>
+                </li>
+            </ul>
+
+            <div class="tab-container">
+                <div class="tab-content" id="1">
+                </div>
+                <div class="tab-content" id="2">
+                    <div id="fileContent"></div>
+                </div>
+                <div class="tab-content" id="3">
+                    hello 3
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="savebtn">Save as JSON</button>
+    <input type="file" id="fileInput">
+
+</body>
+
+</html>
